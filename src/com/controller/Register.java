@@ -36,9 +36,17 @@ public class Register extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	   Registration rg=new Registration();
-	   if((rg.Register(request.getParameter("username"), Integer.parseInt(request.getParameter("age")),request.getParameter("password"), request.getParameter("dept"), request.getParameter("designation"))==true)){
+	   if((rg.Register(request.getParameter("username"), Integer.parseInt(request.getParameter("age")),request.getParameter("password"), request.getParameter("dept"), request.getParameter("designation"))==1)){
 		   RequestDispatcher rd= request.getRequestDispatcher("Success.jsp");
+		   request.setAttribute("check", 0);
 	     	rd.forward(request, response);
+	     	
+	   }
+	   if((rg.Register(request.getParameter("username"), Integer.parseInt(request.getParameter("age")),request.getParameter("password"), request.getParameter("dept"), request.getParameter("designation"))==2)) {
+		   RequestDispatcher rd= request.getRequestDispatcher("Success.jsp");
+		   request.setAttribute("check", 1);
+	       rd.forward(request, response); 
+	     	
 	   }
 	   else {
 		   RequestDispatcher rd= request.getRequestDispatcher("Failure.jsp");

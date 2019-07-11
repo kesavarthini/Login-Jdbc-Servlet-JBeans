@@ -6,9 +6,10 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body><h1>
-Sign Up Failed!
-</h1>
-<jsp:include page="sign_up.html"/>
+<body>
+<h1>
+		<%=request.getParameter("username")%>,Account Already Exists!
+	</h1>
+	<jsp:include page="login.html" />
 </body>
 </html>
